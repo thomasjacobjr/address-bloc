@@ -8,6 +8,10 @@ class AddressBook
         @entries = []
     end
 
+    def destroy
+      @entries = []
+    end
+
     def add_entry(name, phone_number, email)
         index = 0
         @entries.each do |entry|
@@ -39,7 +43,7 @@ class AddressBook
              mid = (lower + upper) / 2
              mid_name = entries[mid].name
 
-       
+
              if name == mid_name
                return entries[mid]
              elsif name < mid_name
