@@ -84,7 +84,8 @@ class MenuController
     name = gets.chomp
     match = @address_book.binary_search(name)
     system "clear"
-    if matchputs match.to_s
+    if match
+      puts match.to_s
       search_submenu(match)
     else
       puts "No match found for #{name}"
@@ -118,7 +119,7 @@ class MenuController
      end
    end
 
-  def delete_entry
+  def delete_entry(entry)
     @address_book.entries.delete(entry)
     puts "#{entry.name} has been deleted"
   end
@@ -161,12 +162,12 @@ class MenuController
 
   def entry_submenu(entry)
 
-      puts "n - next entry"
+      puts "\nn - next entry"
       puts "d - delete entry"
       puts "e - edit this entry"
       puts "m - return to main menu"
 
-      selection = gets.chomp
+      selection = $stdin.gets.chomp
 
       case selection
 
